@@ -1,0 +1,9 @@
+.vscode/**
+.vscode-test/**
+.gitignore
+**/*.map
+*.md
+!README.md
+!CHANGELOG.md
+py/
+test/

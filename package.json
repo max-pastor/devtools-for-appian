@@ -1,0 +1,124 @@
+{
+  "name": "devtools-appian",
+  "displayName": "DevTools - Appian",
+  "description": "DevTools for Appian language: syntax highlighting, completions, hover, signature help, diagnostics, and formatting.",
+  "icon": "./img/icon.png",
+  "version": "1.0.0",
+  "publisher": "MaxPastor",
+  "author": {
+    "name": "Max Pastor",
+    "email": "maxpastor.dev@gmail.com"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "Appian",
+    "intellisense",
+    "language",
+    "autocomplete",
+    "formatter",
+    "lint"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/max-pastor/devtools-for-appian",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/max-pastor/devtools-for-appian.git"
+  },
+  "bugs": {
+    "url": "https://github.com/max-pastor/devtools-for-appian/issues"
+  },
+  "main": "./src/extension.js",
+  "scripts": {
+    "package": "npx --yes @vscode/vsce package",
+    "publish": "npx --yes @vscode/vsce publish"
+  },
+  "contributes": {
+    "configurationDefaults": {
+      "files.associations": {
+        "*.sail": "devtools-appian",
+        "*.appian": "devtools-appian"
+      },
+      "[devtools-appian]": {
+        "editor.parameterHints.enabled": true,
+        "editor.semanticHighlighting.enabled": false,
+        "editor.tokenColorCustomizations": {
+          "textMateRules": [
+            {
+              "scope": ["comment", "comment.block", "comment.line", "comment.line.double-slash"],
+              "settings": { "foreground": "#6A9955", "fontStyle": "italic" }
+            },
+            {
+              "scope": ["string.quoted.double", "string.quoted.single", "string"],
+              "settings": { "foreground": "#CE9178" }
+            },
+            {
+              "scope": ["constant.character.escape"],
+              "settings": { "foreground": "#D7BA7D" }
+            },
+            {
+              "scope": ["variable.other", "variable.other.readwrite", "variable.parameter"],
+              "settings": { "foreground": "#9CDCFE" }
+            },
+            {
+              "scope": ["support.function", "support.function.builtin"],
+              "settings": { "foreground": "#DCDCAA" }
+            },
+            {
+              "scope": ["keyword.control"],
+              "settings": { "foreground": "#C586C0" }
+            },
+            {
+              "scope": ["keyword.other"],
+              "settings": { "foreground": "#569CD6" }
+            },
+            {
+              "scope": ["constant.language", "constant.numeric"],
+              "settings": { "foreground": "#B5CEA8" }
+            },
+            {
+              "scope": ["keyword.operator"],
+              "settings": { "foreground": "#D4D4D4" }
+            },
+            {
+              "scope": ["support.type", "entity.name.type"],
+              "settings": { "foreground": "#4EC9B0" }
+            },
+            {
+              "scope": ["punctuation"],
+              "settings": { "foreground": "#D4D4D4" }
+            }
+          ]
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "devtools-appian",
+        "aliases": [
+          "Appian (Devtools)",
+          "Appian Expression",
+          "SAIL"
+        ],
+        "extensions": [
+          ".sail",
+          ".appian",
+          ".txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "devtools-appian",
+        "scopeName": "source.devtools-appian",
+        "path": "./syntaxes/appian-sail.tmLanguage.json"
+      }
+    ]
+  }
+}
